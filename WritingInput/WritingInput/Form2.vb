@@ -82,8 +82,21 @@ Public Class Form2
             Do While File.Exists(OutputFileName + SampleNumber.ToString + ".txt")
                 SampleNumber += 1
             Loop
-            My.Computer.FileSystem.WriteAllText(OutputFileName + SampleNumber.ToString + ".txt", InputTextBox.Text.ToString, False, System.Text.Encoding.Default)
-            My.Computer.FileSystem.WriteAllText(OutputFileName + SampleNumber.ToString + ".csv", "Subject,Date,Time,Computer,Condition,Writing_Time" + vbCrLf + FormStartupInfo.ParticipantNumberTextBox.Text.ToString + "," + DateTime.Now.ToString("yyyy-MM-dd") + "," + DateTime.Now.ToString("HH:mm:ss") + "," + FormStartupInfo.ComputerNumberTextbox.Text.ToString + "," + FormStartupInfo.ConditionTextBox.Text.ToString + "," + (WritingCounter / 60).ToString, False, System.Text.Encoding.Default)
+
+            If (Not System.IO.Directory.Exists("Writing Output\")) Then
+                System.IO.Directory.CreateDirectory("Writing Output\")
+            End If
+
+            Dim fileoutput As System.IO.StreamWriter
+            fileoutput = My.Computer.FileSystem.OpenTextFileWriter(OutputFileName + SampleNumber.ToString + ".txt", False)
+            fileoutput.Write(InputTextBox.Text.ToString)
+            fileoutput.Close()
+
+            fileoutput = My.Computer.FileSystem.OpenTextFileWriter(OutputFileName + SampleNumber.ToString + ".csv", False)
+            fileoutput.WriteLine("Subject,Date,Time,Computer,Condition,Writing_Time")
+            fileoutput.WriteLine(FormStartupInfo.ParticipantNumberTextBox.Text.ToString + "," + DateTime.Now.ToString("yyyy-MM-dd") + "," + DateTime.Now.ToString("HH:mm:ss") + "," + FormStartupInfo.ComputerNumberTextbox.Text.ToString + "," + FormStartupInfo.ConditionTextBox.Text.ToString + "," + (WritingCounter / 60).ToString)
+            fileoutput.Close()
+
             FinishedWritingTimer.Start()
         End If
 
@@ -92,7 +105,7 @@ Public Class Form2
 
     Private Sub FinishedWritingTimer_Tick(sender As System.Object, e As System.EventArgs) Handles FinishedWritingTimer.Tick
         GoodbyeTextCount += 1
-        If GoodbyeTextCount > 6 Then
+        If GoodbyeTextCount > 15 Then
             FinishedWritingTimer.Stop()
             FinishedWritingTimer.Dispose()
             FormStartupInfo.Show()

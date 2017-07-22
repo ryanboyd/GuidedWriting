@@ -43,7 +43,7 @@ Partial Class Form2
         '
         'InstructionsLabel
         '
-        Me.InstructionsLabel.BackColor = System.Drawing.Color.DarkGray
+        Me.InstructionsLabel.BackColor = System.Drawing.Color.WhiteSmoke
         Me.InstructionsLabel.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.InstructionsLabel.ForeColor = System.Drawing.Color.Black
         Me.InstructionsLabel.Location = New System.Drawing.Point(13, 13)
@@ -55,9 +55,9 @@ Partial Class Form2
         '
         'InputTextBox
         '
-        Me.InputTextBox.BackColor = System.Drawing.Color.DarkGray
+        Me.InputTextBox.BackColor = System.Drawing.Color.WhiteSmoke
         Me.InputTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle
-        Me.InputTextBox.Font = New System.Drawing.Font("Monotype Sans WT J", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.InputTextBox.Font = New System.Drawing.Font("Microsoft Sans Serif", 18.0!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.InputTextBox.ForeColor = System.Drawing.Color.Black
         Me.InputTextBox.Location = New System.Drawing.Point(13, 73)
         Me.InputTextBox.Multiline = True
@@ -79,7 +79,7 @@ Partial Class Form2
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.BackColor = System.Drawing.Color.DarkGray
+        Me.BackColor = System.Drawing.Color.WhiteSmoke
         Me.ClientSize = New System.Drawing.Size(972, 639)
         Me.ControlBox = False
         Me.Controls.Add(Me.InputTextBox)

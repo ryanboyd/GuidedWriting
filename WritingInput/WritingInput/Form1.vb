@@ -26,15 +26,15 @@ Public Class FormStartupInfo
 
 
     'limits the splitter's input array to 0-9 and backspace (ChrW(8))
-    Private Sub ParticipantNumberTextBox_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles ParticipantNumberTextBox.KeyPress
-
-        Dim allowedChars As String = "0123456789"
-
-        If allowedChars.IndexOf(e.KeyChar) = -1 AndAlso Not e.KeyChar = ChrW(8) Then
-            ' Invalid Character
-            e.Handled = True
-        End If
-    End Sub
+    'Private Sub ParticipantNumberTextBox_KeyPress(ByVal sender As Object, ByVal e As System.Windows.Forms.KeyPressEventArgs) Handles ParticipantNumberTextBox.KeyPress
+    '
+    '    Dim allowedChars As String = "0123456789"
+    '
+    '    If allowedChars.IndexOf(e.KeyChar) = -1 AndAlso Not e.KeyChar = ChrW(8) Then
+    '            ' Invalid Character
+    '            e.Handled = True
+    '    End If
+    '    End Sub
 
 
     'MAKES SURE THAT SPLITTER BOX ISN'T LEFT BLANK
